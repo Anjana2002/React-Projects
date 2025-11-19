@@ -12,6 +12,10 @@ export default function Dashboard() {
 
     return (
         <div className="dashboard-container">
+            {/* <div className="header">
+                hi
+            </div> */}
+
             <aside className="sidebar">
                 <h2>Dashboard</h2>
                 <ul>
@@ -21,6 +25,7 @@ export default function Dashboard() {
                     <li><button onClick={handleLogout} className="logout-btn">Logout</button></li>
                 </ul>
             </aside>
+
 
             <main className="dashboard-content">
                 <h1>Welcome to Expense Tracker</h1>
