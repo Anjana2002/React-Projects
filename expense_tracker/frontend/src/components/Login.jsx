@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 import "../styles/styles.css";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
     const [formData, setFormData] = useState({
         email: "",
         password:"",
     });
     const [message, setMessage] = useState("");
-
+    const navigate = useNavigate();
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -26,9 +27,10 @@ export default function Login() {
                 }
             );
             localStorage.setItem("token", res.data.token);
-            
+
             setMessage(res.data.message || "Login successful!");
             setFormData({email: "", password: ""});
+            navigate("/dashboard");
         } catch(error){
             setMessage("Login failed. Please try again.");
         }
