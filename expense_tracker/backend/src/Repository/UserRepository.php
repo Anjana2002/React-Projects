@@ -35,7 +35,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->getEntityManager()->persist($user);
         $this->getEntityManager()->flush();
     }
-    public function registerUser(array $data, $photo = null): User 
+    public function registerUser(array $data, $photo = null): User
     {
         $user = new User();
         $user->setName($data['name']);
@@ -45,7 +45,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $newHashedPassword = $this->passwordHasher->hashPassword($user, $data['password']);
         $user->setPassword($newHashedPassword);
 
-        if($photo){
+        if ($photo) {
             $uploadsDir = __DIR__ . '/../../public/uploads';
             $newFilename = uniqid() . '.' . $photo->guessExtension();
             $photo->move($uploadsDir, $newFilename);
@@ -56,6 +56,13 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $em->flush();
 
         return $user;
-
+    }
+    public function findByEmail(string $email): ?User
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.email = :email')
+            ->setParameter('email', $email)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }
