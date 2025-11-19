@@ -5,7 +5,7 @@ export default function Register() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        dob: "",
+        dateOfBirth: "",
         location: "",
         password: "",
         profilePhoto: null,
@@ -56,7 +56,7 @@ export default function Register() {
                 <label>Email:</label>
                 <input type="email" name="email" value={formData.email} onChange={handleChange} required />
                 <label>Date of Birth</label>
-                <input type="date" name="dob" value={formData.dob} onChange={handleChange} required />
+                <input type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required />
                 <label>Location</label>
                 <input type="text" name="location" value={formData.location} onChange={handleChange} required />
                 <label>Password:</label>
