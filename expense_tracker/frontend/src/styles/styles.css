@@ -1,0 +1,48 @@
+.header{
+    background-color: #282c34;
+    color: white;
+    padding: 25px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title{
+    font-size: 3.5em;
+    font-weight: bold;
+    margin: 0;
+}
+.nav-links{
+    display: flex;
+    gap: 20px;
+}
+.header-btn{
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+.footer{
+    background-color: #1f2229;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.2em;
+    border-top: 2px solid #343840;
+}
+.footer p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+.content {
+    flex: 1; 
+}
+.home{
+    padding: 40px;
+    text-align: center;
+}

@@ -1,22 +1,27 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL;
-
+import Header from './components/Header.jsx';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from './components/Footer.jsx';
+import Home from './components/Home.jsx';
+import "./styles/styles.css";
+import Register from './components/Register.jsx';
 function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    axios.get(`${API_URL}/home`)
-      .then(response => setMessage(response.data.message))
-      .catch(err => console.error(err));
-  }, []);
-
   return (
-    <div style={{ fontSize: "24px", padding: "20px" }}>
-      React Frontend Says: {message}
-    </div>
-  );
+    <BrowserRouter>
+      <div className="app-container">
+      <Header />
+      <main className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+
+      </main>
+      <Footer />
+      </div>
+    </BrowserRouter>
+  )
+
 }
 
 export default App;
