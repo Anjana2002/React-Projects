@@ -11,10 +11,10 @@ security:
                 property: email
     firewalls:
         login:
-            pattern: ^/login$           # Your login URL
+            pattern: ^/login$      
             stateless: true
             json_login:
-                check_path: /login      # Path to handle login
+                check_path: /login    
                 username_path: email        # Key in JSON for email
                 password_path: password     # Key in JSON for password
                 success_handler: lexik_jwt_authentication.handler.authentication_success

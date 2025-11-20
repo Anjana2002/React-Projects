@@ -8,26 +8,14 @@ export default function DashboardLayout() {
     return (
         <div className="dashboard-page">
             <ProfileHeader />
-
             <div className="dashboard-container">
                 <aside className="sidebar">
-                    {/* <h2>Dashboard</h2> */}
                     <ul>
                         <li>
-                            <button
-                                className="sidebar-btn"
-                                onClick={() => navigate("/dashboard/profile")}
-                            >
-                                Profile
-                            </button>
+                            <button className="sidebar-btn" onClick={() => navigate("/dashboard/profile")}> Profile</button>
                         </li>
                         <li>
-                            <button
-                                className="sidebar-btn"
-                                onClick={() => navigate("/dashboard")}
-                            >
-                                Home
-                            </button>
+                            <button className="sidebar-btn" onClick={() => navigate("/dashboard")}>Home </button>
                         </li>
                         <li>
                             <button className="sidebar-btn">Expenses</button>
@@ -37,9 +25,6 @@ export default function DashboardLayout() {
                         </li>
                     </ul>
                 </aside>
-
-
-
                 <main className="dashboard-content">
                     <Outlet />
                 </main>

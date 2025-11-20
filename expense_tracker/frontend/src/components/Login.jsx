@@ -30,7 +30,7 @@ export default function Login() {
 
             setMessage(res.data.message || "Login successful!");
             setFormData({email: "", password: ""});
-            navigate("/dashboard");
+            navigate("/dashboard/profile");
         } catch(error){
             setMessage("Login failed. Please try again.");
         }

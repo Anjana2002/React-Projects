@@ -27,21 +27,20 @@ export default function ProfileHeader() {
         localStorage.removeItem("token");
         navigate("/login");
     };
-
+    const profilePhoto = user?.profilePhoto ? `${API_URL}${user.profilePhoto}` : profileIcon;
     return (
         <>
             <div className="pro-header">
                 <h1 className="profile-title">ExpenseTracker</h1>
                 <div className="nav-links">
-                    <img src={profileIcon} alt="Profile" className="profile-icon" onClick={() => setIsModalOpen(true)} />
-
+                    <img src={profilePhoto} alt={user?.name || "Profile"} className="profile-icon" onClick={() => setIsModalOpen(true)} />
                 </div>
             </div>
             {isModalOpen && user && (
                 <div className="modal-backdrop" onClick={() => setIsModalOpen(false)}>
                     <div className="profile-modal" onClick={(e) => e.stopPropagation()}>
                         <img
-                            src={`${API_URL}${user.profilePhoto}`}
+                            src={profilePhoto}
 
                             alt={user.name}
                             className="modal-profile-photo"
