@@ -19,7 +19,7 @@ function MainLayout() {
 }
 
 function EmptyLayout() {
-  return (
+  return ( 
     <div className="app-container">
       <main className="content">
         <Outlet />
