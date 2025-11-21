@@ -1,24 +1,34 @@
 import "../styles/styles.css";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import defaultProfile from "../assets/profile.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchProfile } from "../redux/profileSlice";
 
 export default function ProfileSection() {
-    const [user, setUser] = useState(null);
+    // const [user, setUser] = useState(null);
+    // const API_URL = import.meta.env.VITE_API_URL;
+
+    // useEffect(() => {
+    //     const token = localStorage.getItem("token");
+
+    //     axios.get(`${API_URL}/profile`, {
+    //         headers: { Authorization: `Bearer ${token}` }
+    //     })
+    //     .then(res => setUser(res.data))
+    //     .catch(err => console.error("Profile error:", err));
+    // }, []);
+    // if (!user) return <p>Loading profile...</p>;
+
     const API_URL = import.meta.env.VITE_API_URL;
-
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-
-        axios.get(`${API_URL}/profile`, {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-        .then(res => setUser(res.data))
-        .catch(err => console.error("Profile error:", err));
-    }, []);
-
-    if (!user) return <p>Loading profile...</p>;
-
+    const dispatch = useDispatch();
+    const { user, loading, error} = useSelector((state) => state.profile);
+    useEffect(() =>{
+        dispatch(fetchProfile());
+    }, []);    
+    if (loading) return <p>loading...</p>
+    if (error) return <p>error</p>
+    if (!user) return null;                                                                             
+                                                                                                    
     const photoUrl = user?.profilePhoto
         ? API_URL + user.profilePhoto
         : defaultProfile;
