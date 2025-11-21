@@ -87,16 +87,14 @@
     margin-bottom: 5px;
 }
 
-.form-box input[type="text"],
-.form-box input[type="email"],
-.form-box input[type="password"],
-.form-box input[type="date"],
-.form-box input[type="file"] {
+.form-box input,
+.form-box textarea {
     padding: 12px;
     border-radius: 6px;
     border: 1px solid #ccc;
     font-size: 1em;
 }
+
 
 button.submit-btn {
     padding: 12px;

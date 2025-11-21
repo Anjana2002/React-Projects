@@ -18,10 +18,13 @@ export default function DashboardLayout() {
                             <button className="sidebar-btn" onClick={() => navigate("/dashboard")}>Home </button>
                         </li>
                         <li>
-                            <button className="sidebar-btn">Expenses</button>
+                            <button className="sidebar-btn" onClick={() => navigate("/additem")}>Add Item</button>
+                        </li>
+                         <li>
+                            <button className="sidebar-btn" onClick={() => navigate("/counter")}>Counter</button>
                         </li>
                         <li>
-                            <button className="sidebar-btn">Reports</button>
+                            <button className="sidebar-btn">Cart</button>
                         </li>
                     </ul>
                 </aside>

@@ -1,4 +1,3 @@
-// Dashboard.jsx
 import "../styles/styles.css";
 
 export default function Dashboard() {
@@ -9,3 +8,4 @@ export default function Dashboard() {
     </div>
   );
 }
+

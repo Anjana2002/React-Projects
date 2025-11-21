@@ -7,7 +7,9 @@ import Register from './components/Register.jsx';
 import DashboardLayout from './components/DashboardLayout.jsx';
 import Dashboard from './components/Dashboard.jsx';
 import ProfileSection from './components/ProfileSection.jsx';
-import ProtectedRoute from './components/Protected.jsx';
+import Protected from './components/Protected.jsx';
+import AddItem from "./components/AddItem.jsx";
+import Counter from "./components/Counter.jsx";
 
 function MainLayout() {
   return (
@@ -31,9 +33,11 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Route>
 
-        <Route element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
+        <Route element={<Protected><DashboardLayout /></Protected>}>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard/profile" element={<ProfileSection />} /> 
+          <Route path="/dashboard/profile" element={<ProfileSection />} />
+          <Route path="/additem" element={<AddItem />} />
+          <Route path="/counter" element={<Counter />} />
         </Route>
 
       </Routes>
