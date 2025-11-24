@@ -1,20 +1,22 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../redux/itemSlice";
+// import { addItem } from "../redux/itemSlice";
 import "../styles/styles.css";
+import { useAddItemMutation } from "../redux/itemSlice";
+import { useForm } from "@tanstack/react-form";
 
 export default function AddItem() {
-
-    const dispatch = useDispatch();
+    const [addItem, { isLoading, isError, isSuccess }] = useAddItemMutation();
+    // const dispatch = useDispatch();
 
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState(null);
-    const success = useSelector((state) => state.items.success);
-    const error = useSelector((state) => state.items.error);
+    // const success = useSelector((state) => state.items.success);
+    // const error = useSelector((state) => state.items.error);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const formData = new FormData();
@@ -23,7 +25,16 @@ export default function AddItem() {
         formData.append("description", description);
         formData.append("itemImage", image);
 
-        dispatch(addItem(formData));
+        // dispatch(addItem(formData)); 
+        try {
+            await addItem(formData).unwrap();                                                       
+            setName("");
+            setPrice("");
+            setDescription("");
+            setImage(null);
+        } catch {
+            alert("Failed to add item")
+        }
     };
 
     return (
@@ -47,10 +58,12 @@ export default function AddItem() {
                     onChange={(e) => setImage(e.target.files[0])}
                 />
 
-                <button type="submit" className="submit-btn">Register</button>
+                <button type="submit" className="submit-btn" disabled={isLoading}>
+                    {isLoading ? "Adding..." : "Register"}
+                </button>
 
-                {success && <p className="success-msg">{success}</p>}
-                {error && <p className="error-msg">{error}</p>}
+                {isSuccess && <p className="success-msg">Item added successfully!</p>}
+                {isError && <p className="error-msg">Failed to add item</p>}
             </form>
         </div>
     );

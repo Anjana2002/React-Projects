@@ -11,6 +11,7 @@ import Protected from './components/Protected.jsx';
 import AddItem from "./components/AddItem.jsx";
 import Counter from "./components/Counter.jsx";
 import ViewItem from "./components/ViewItem.jsx";
+import AddPet from "./components/AddPet.jsx"
 function MainLayout() {
   return (
     <div className="app-container">
@@ -39,6 +40,7 @@ function App() {
           <Route path="/additem" element={<AddItem />} />
           <Route path="/viewitem" element={<ViewItem />} />
           <Route path="/counter" element={<Counter />} />
+          <Route path="/addpet" element={<AddPet />} />
         </Route>
 
       </Routes>

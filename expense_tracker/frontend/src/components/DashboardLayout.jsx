@@ -26,6 +26,9 @@ export default function DashboardLayout() {
                         <li>
                             <button className="sidebar-btn" onClick={() => navigate("/viewitem")}>View Items</button>
                         </li>
+                        <li>
+                            <button className="sidebar-btn" onClick={() => navigate("/addpet")}>Add Pet</button>
+                        </li>
                     </ul>
                 </aside>
                 <main className="dashboard-content">
