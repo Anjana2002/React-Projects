@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, isRejected } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchProfile = createAsyncThunk("profile/fetch", async () => {

@@ -10,7 +10,7 @@ import ProfileSection from './components/ProfileSection.jsx';
 import Protected from './components/Protected.jsx';
 import AddItem from "./components/AddItem.jsx";
 import Counter from "./components/Counter.jsx";
-
+import ViewItem from "./components/ViewItem.jsx";
 function MainLayout() {
   return (
     <div className="app-container">
@@ -37,6 +37,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/profile" element={<ProfileSection />} />
           <Route path="/additem" element={<AddItem />} />
+          <Route path="/viewitem" element={<ViewItem />} />
           <Route path="/counter" element={<Counter />} />
         </Route>
 

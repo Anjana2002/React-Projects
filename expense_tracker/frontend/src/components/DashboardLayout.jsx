@@ -24,7 +24,7 @@ export default function DashboardLayout() {
                             <button className="sidebar-btn" onClick={() => navigate("/counter")}>Counter</button>
                         </li>
                         <li>
-                            <button className="sidebar-btn">Cart</button>
+                            <button className="sidebar-btn" onClick={() => navigate("/viewitem")}>View Items</button>
                         </li>
                     </ul>
                 </aside>
